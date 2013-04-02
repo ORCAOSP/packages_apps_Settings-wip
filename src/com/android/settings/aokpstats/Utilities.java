@@ -81,7 +81,7 @@ public class Utilities {
     }
 
     public static String getModVersion() {
-        String aokp_ver = SystemProperties.get("ro.aokp.version");
+        String aokp_ver = SystemProperties.get("ro.orca.version");
         if (aokp_ver != null) {
             Pattern pattern = Pattern.compile("^(aokp_)[a-z0-9]*_((jb-mr1)|(unofficial))?[-_]?(((Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)+-[0-9]+-[0-9]+)|((build|milestone)-[0-9]+))$");
             Matcher matcher = pattern.matcher(aokp_ver);
@@ -90,11 +90,11 @@ public class Utilities {
                 String ver = splitted[splitted.length-2].concat(splitted[splitted.length-1]);
                 return ver;
             } else {
-                return "KANG";
+                return "Nightly";
             }
         }
         else {
-            return "KANG";
+            return "Nightly";
         }
     }
 

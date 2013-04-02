@@ -1503,6 +1503,39 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+        <!-- OrcaTools -->
+        <activity android:name="OrcaTools" />
+        <activity android:name=".orca.Shortcuts" />
+        <activity android:name=".orca.Targets" />
+        <activity android:name=".orca.DensityChanger" />
+        <activity android:name=".paranoid.Pie" />
+        <activity android:name=".paranoid.PieColor" />
+        <activity android:name=".cyanogenmod.LockscreenButtons" />
+
+        <!-- CyanogenMod activities Start -->
+        <activity android:name=".profiles.ProfilesSettings" />
+
+        <activity android:name=".profiles.ProfileConfig" />
+
+        <activity android:name=".profiles.AppGroupList" />
+
+        <activity android:name=".profiles.AppGroupConfig" />
+
+        <activity android:name=".profiles.ProfileGroupConfig" />
+
+        <activity android:name=".profiles.NFCProfileWriter" />
+
+        <activity android:name=".profiles.NFCProfileSelect" />
+
+        <activity android:name=".profiles.NFCProfile"
+                android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="cm/profile" />
+            </intent-filter>
+        </activity>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
@@ -1557,6 +1590,68 @@
                 android:resource="@id/display_settings" />
         </activity>
 
+        <!-- Notification Shortcuts -->
+        <activity android:name="Settings$NotificationShortcutsSettingsActivity"
+                android:label="@string/notification_shortcuts_settings_title"
+                android:clearTaskOnLaunch="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.android.settings.slim.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
+                <action android:name="android.settings.slim.notificationshortcuts.NOTIFICATION_SHORTCUTS" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.slim.notificationshortcuts.NotificationShortcuts" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/slim_notification_shortcuts" />
+        </activity>
+
+        <activity android:name="net.margaritov.preference.colorpicker" />
+
+        <activity android:name="Settings$OrcaToolsActivity"
+                android:label="@string/orcatools_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.OrcaTools" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/rb_settings" />
+        </activity>
+
+        <activity android:name="Settings$PieActivity"
+                android:label="@string/pie_controls_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.paranoid.Pie" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/rb_settings" />
+        </activity>
+
+        <activity android:name="Settings$ProfilesSettingsActivity"
+                android:label="@string/profiles_settings_title"
+                android:taskAffinity=""
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.profiles.ProfilesSettings" />
+            <meta-data android:name="com.android.settings.TOP_LEVEL_HEADER_ID"
+                android:resource="@id/profiles_settings" />
+        </activity>
+        
         <activity android:name="Settings$QuietHoursSettingsActivity"
                 android:label="@string/quiet_hours_title"
                 android:taskAffinity=""

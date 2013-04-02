@@ -81,7 +81,7 @@ public class ReportingService extends Service {
         Log.d(TAG, "SERVICE: Carrier ID=" + deviceCarrierId);
 
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost("http://stats.aokp.co/submit.php");
+        HttpPost httppost = new HttpPost("http://stats.drewgaren.com/submit.php");
         try {
             List<NameValuePair> kv = new ArrayList<NameValuePair>(5);
             kv.add(new BasicNameValuePair("hash", deviceId));
